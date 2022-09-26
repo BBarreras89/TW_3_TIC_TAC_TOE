@@ -1,6 +1,8 @@
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
+const getMenuSelection = require({ getMenuOption });
+console.log(getMenuSelection);
 
 const HUMAN_VS_HUMAN = 1;
 const RANDOM_AI_VS_RANDOM_AI = 2;
