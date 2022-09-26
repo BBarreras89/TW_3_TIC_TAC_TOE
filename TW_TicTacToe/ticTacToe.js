@@ -1,20 +1,34 @@
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
-const getMenuSelection = require({ getMenuOption });
-console.log(getMenuSelection);
+const { quitGame } = require("./menu");
+//const getMenuOption = require({ getMenuOption });
+//const alignCenter = require({ alignCenter });
 
 const HUMAN_VS_HUMAN = 1;
 const RANDOM_AI_VS_RANDOM_AI = 2;
 const HUMAN_VS_RANDOM_AI = 3;
 const HUMAN_VS_UNBEATABLE_AI = 4;
+/*
+//*********FUNCTION TO ALIGN CENTER IN TERMINAL***************
+function alignCenter(varToAlignCenter) {
+    let startPoint = (100 - varToAlignCenter.length) / 2;
+    let arraySpaceAlineCenter = [];
+    for (let i = 1; i < startPoint; i++){
+        arraySpaceAlineCenter.push(" ");
+    }
+    return arraySpaceAlineCenter.join("");
+}
+*/
 
 function main() {
   let gameMode = menu.getMenuOption();
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
 
-  while (isGameRunning) {
+  console.log("Is Quit Game entered?" + quitGame);
+
+  while (isGameRunning && !quitGame) {
     board.displayBoard(board);
 
     /* TODO
