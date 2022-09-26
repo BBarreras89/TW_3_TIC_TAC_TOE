@@ -22,14 +22,25 @@ function main() {
         in each new iteration of the while loop the program should 
         alternate the value of `currentPlayer` from `X` to `O`
         */
+    
+    //es fehlt noch die berechnung jedesmal wenn ein richtigrer prompt input da ist wird 1 Counter dazu gerechnet.
+    let counterPlayRounds = 0;
     let currentPlayer = "X";
+    if (counterPlayRounds % 2 === 0) {
+      currentPlayer = "X";
+    } else {
+      currentPlayer = "O"
+    }
+    console.log("Current Play is " + currentPlayer);
+    
+
 
     /* TODO
-
         based on the value of the variables `game_mode` and `currentPlayer` 
         the programm should should choose betwen the functions
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
         */
+    if ()
     let humanCoord = coordinate.getPlayerMove(board, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
