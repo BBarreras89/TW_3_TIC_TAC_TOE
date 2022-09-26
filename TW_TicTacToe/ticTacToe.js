@@ -1,3 +1,5 @@
+console.log("test");
+
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
