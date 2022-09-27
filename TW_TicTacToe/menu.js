@@ -32,11 +32,14 @@ function alignCenter(varToAlignCenter) {
 }
 
 //*************INTRO START GAME OR READ RULES****************
-let parameterFromMenuArr = [];
-//Used more times also exported to ticTacToe.js
-let isQuitTipedIn = false;
 
+//Return in an Array => what game mode we have and quit entered.
+//Exaple array[1-4, quit=true]
 function startGameMenu() {
+    //Used more times also exported to ticTacToe.js
+    let isQuitTipedIn = false;
+    let parameterFromMenuArr = [];
+
     console.clear();
     let ticLength = "                                                             "
     let TicTacToe = "\n" +

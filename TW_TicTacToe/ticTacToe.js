@@ -4,24 +4,18 @@ const coordinate = require("./coordinates");
 const { alignCenter } = require("./menu");
 const { startGameMenu } = require("./menu");
 
-let gameMode = menu.startGameMenu([0]);
-let quitGame = menu.startGameMenu([1]);
-console.log(gameMode);
-console.log(quitGame);
-console.log(startGameMenu[0]);
-console.log(startGameMenu[1]);
 
 function main() {
-  startGameMenu();
+  return startGameMenu();
 }
 main();
-let gameMode = menu.startGameMenu([0]);
-let quitGame = menu.startGameMenu([1]);
-console.log(gameMode);
-console.log(quitGame);
-console.log(startGameMenu[0]);
-console.log(startGameMenu[1]);
+let startGameMenuArr = startGameMenu();
+let arr1 = startGameMenuArr[0];
+let arr2 = startGameMenuArr[1];
+console.log(arr1);
+console.log(arr2);
 let stop = prompt("");
+console.log(stop);
 /*
 const { isQuitTipedIn } = require("./menu");
 //const getMenuOption = require({ getMenuOption });
@@ -65,14 +59,8 @@ function main() {
         based on the value of the variables `game_mode` and `currentPlayer` 
         the programm should should choose betwen the functions
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
-<<<<<<< HEAD
+
         
-=======
-        */
-
-    //if ()
-
->>>>>>> 84bfcea63c8fa58374fcc5fb1f9432c6b6cd2f83
     let humanCoord = coordinate.getPlayerMove(board, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
