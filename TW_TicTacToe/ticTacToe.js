@@ -9,6 +9,7 @@ function main() {
   return startGameMenu();
 }
 main();
+console.clear();
 let startGameMenuArr = startGameMenu();
 let arr1 = startGameMenuArr[0];
 let arr2 = startGameMenuArr[1];
