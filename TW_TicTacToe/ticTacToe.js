@@ -58,7 +58,14 @@ function main() {
         based on the value of the variables `game_mode` and `currentPlayer` 
         the programm should should choose betwen the functions
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
+<<<<<<< HEAD
         
+=======
+        */
+
+    //if ()
+
+>>>>>>> 84bfcea63c8fa58374fcc5fb1f9432c6b6cd2f83
     let humanCoord = coordinate.getPlayerMove(board, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;

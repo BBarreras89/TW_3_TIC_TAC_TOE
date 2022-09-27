@@ -1,23 +1,23 @@
-                                                                                /*
-                                                                                Should print a menu with the following options:
-                                                                                        1. Human vs Human
-                                                                                        2. Random AI vs Random AI
-                                                                                        3. Human vs Random AI
-                                                                                        4. Human vs Unbeatable AI
-                                                                                        The function should return a number between 1-4.
-                                                                                        If the user will enter invalid data (for example 5), than a message will appear
-                                                                                        asking to input a new value.
-                                                                                */
+/*
+Should print a menu with the following options:
+1. Human vs Human
+2. Random AI vs Random AI
+3. Human vs Random AI
+4. Human vs Unbeatable AI
+The function should return a number between 1-4.
+If the user will enter invalid data (for example 5), than a message will appear
+asking to input a new value.
+*/
 const prompt = require("prompt-sync")();
 
-                                                                                /*Test
-                                                                                let testPrompt = prompt("Test no enter:");
-                                                                                console.log(typeof testPrompt);
-                                                                                let promptArr = [];
-                                                                                promptArr.push(testPrompt);
-                                                                                console.log(promptArr);
-                                                                                let stop = prompt("stop");
-                                                                                */
+/*Test
+let testPrompt = prompt("Test no enter:");
+console.log(typeof testPrompt);
+let promptArr = [];
+promptArr.push(testPrompt);
+console.log(promptArr);
+let stop = prompt("stop");
+*/
 
 
 //*********FUNCTION TO ALIGN CENTER IN TERMINAL***************
@@ -168,5 +168,4 @@ module.exports = {
                                                                                     console.log(option);
                                                                                 }
                                                                                 checkOptions;
-                                                                                */
-                                                                                
+                                                                                */                                                         
