@@ -6,17 +6,16 @@ const { startGameMenu } = require("./menu");
 
 
 function main() {
-  return startGameMenu();
+  console.clear();
+  let startGameMenuArr = startGameMenu();
+  let arr1 = startGameMenuArr[0];
+  let arr2 = startGameMenuArr[1];
+  console.log(arr1);
+  console.log(arr2);
+  let stop = prompt("");
+  console.log(stop);
 }
 main();
-console.clear();
-let startGameMenuArr = startGameMenu();
-let arr1 = startGameMenuArr[0];
-let arr2 = startGameMenuArr[1];
-console.log(arr1);
-console.log(arr2);
-let stop = prompt("");
-console.log(stop);
 /*
 const { isQuitTipedIn } = require("./menu");
 //const getMenuOption = require({ getMenuOption });
