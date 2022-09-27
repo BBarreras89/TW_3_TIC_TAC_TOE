@@ -2,19 +2,26 @@ const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
 const { alignCenter } = require("./menu");
+const { startGameMenu } = require("./menu");
 
-let gameMode = menu.startGameMenu[0];
-let quitGame = menu.startGameMenu[1];
+let gameMode = menu.startGameMenu([0]);
+let quitGame = menu.startGameMenu([1]);
 console.log(gameMode);
 console.log(quitGame);
 console.log(startGameMenu[0]);
 console.log(startGameMenu[1]);
 
 function main() {
-  menu.startGameMenu;
+  startGameMenu();
 }
 main();
-
+let gameMode = menu.startGameMenu([0]);
+let quitGame = menu.startGameMenu([1]);
+console.log(gameMode);
+console.log(quitGame);
+console.log(startGameMenu[0]);
+console.log(startGameMenu[1]);
+let stop = prompt("");
 /*
 const { isQuitTipedIn } = require("./menu");
 //const getMenuOption = require({ getMenuOption });

@@ -1,28 +1,28 @@
-/*
-Should print a menu with the following options:
-1. Human vs Human
-2. Random AI vs Random AI
-3. Human vs Random AI
-4. Human vs Unbeatable AI
-The function should return a number between 1-4.
-If the user will enter invalid data (for example 5), than a message will appear
-asking to input a new value.
-*/
+                                                                                /*
+                                                                                Should print a menu with the following options:
+                                                                                1. Human vs Human
+                                                                                2. Random AI vs Random AI
+                                                                                3. Human vs Random AI
+                                                                                4. Human vs Unbeatable AI
+                                                                                The function should return a number between 1-4.
+                                                                                If the user will enter invalid data (for example 5), than a message will appear
+                                                                                asking to input a new value.
+                                                                                */
+
+                                                                                /*Test
+                                                                                let testPrompt = prompt("Test no enter:");
+                                                                                console.log(typeof testPrompt);
+                                                                                let promptArr = [];
+                                                                                promptArr.push(testPrompt);
+                                                                                console.log(promptArr);
+                                                                                let stop = prompt("stop");
+                                                                                */
+
 const prompt = require("prompt-sync")();
-
-/*Test
-let testPrompt = prompt("Test no enter:");
-console.log(typeof testPrompt);
-let promptArr = [];
-promptArr.push(testPrompt);
-console.log(promptArr);
-let stop = prompt("stop");
-*/
-
 
 //*********FUNCTION TO ALIGN CENTER IN TERMINAL***************
 function alignCenter(varToAlignCenter) {
-    let windoWidth = 180;
+    let windoWidth = 160;
     let startPoint = (windoWidth - varToAlignCenter.length) / 2;
     let arraySpaceAlineCenter = [];
     for (let i = 1; i < startPoint; i++){
@@ -62,36 +62,33 @@ function startGameMenu() {
     let userStartInput = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
 
     if (userStartInput === "quit") {
-        isQuitTipedIn = false;
+        isQuitTipedIn = true;
     }
 
     while (userStartInput !== "1" || userStartInput !== "2" || isQuitTipedIn === true) {
         if (userStartInput === "1") {
             getMenuOption();
-        } else {
-            if (userStartInput === "2") {
-                gameplayRules();
+        } else if (userStartInput === "2") {
+            gameplayRules();
+            if (gameplayRules() === false) {
                 getMenuOption();
-            } else {
-                if (userStartInput === "quit") {
-                    isQuitTipedIn = true;
-                } else {
-                    console.clear();
-                    console.log(TicTacToe);
-                    let wrongStartInput = "Please enter just 1 for Start Game"
-                    let wrongRulesInput = "or enter 2 to get the Rules of the Game"
-                    console.log("\n" + alignCenter(wrongStartInput) + wrongStartInput);
-                    console.log("\n" + alignCenter(wrongRulesInput) + wrongRulesInput);
-                    console.log("\n\n");
-                    userStartInput = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
-                }
             }
+        } else if (userStartInput === "quit") {
+            isQuitTipedIn = true;
+        } else {
+            console.clear();
+            console.log(TicTacToe);
+            let wrongStartInput = "Please enter just 1 for Start Game"
+            let wrongRulesInput = "or enter 2 to get the Rules of the Game"
+            console.log("\n" + alignCenter(wrongStartInput) + wrongStartInput);
+            console.log("\n" + alignCenter(wrongRulesInput) + wrongRulesInput);
+            console.log("\n\n");
+            userStartInput = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
         }
     }
 
     //*************GAME RULES :TIC TAC TOE****************
     function gameplayRules() {
-        let continueToGame = "";
         console.clear();
         console.log(TicTacToe);
         let ruleTitle = "GAME RULES"
@@ -106,28 +103,46 @@ function startGameMenu() {
         console.log("\n" + alignCenter(ruleFour) + ruleFour);
         console.log("\n\n")
         let continueGame = "Please press enter to continue to game! "
-        continueToGame = prompt(alignCenter(continueGame) + continueGame).toLowerCase();
+        let continueToGame = prompt(alignCenter(continueGame) + continueGame).toLowerCase();
         if (continueToGame === "quit") {
             isQuitTipedIn = true;
         }
         return isQuitTipedIn;
     }
-    isQuitTipedIn = gameplayRules();
 
+    //*************GAME START: DISPLAY GAME MODE MENU****************
+    function displayMenu() {
+        let inputGameMode0 = "Please enter your Game Mode:";
+        console.log("\n" + alignCenter(inputGameMode0) + inputGameMode0);
+        let inputGameMode1 = "1 for Human vs Human";
+        console.log("\n" + alignCenter(inputGameMode1) + inputGameMode1);
+        let inputGameMode2 = "2 for Random AI vs Random AI";
+        console.log("\n" + alignCenter(inputGameMode2) + inputGameMode2);
+        let inputGameMode3 = "3 for Human vs Random AI";
+        console.log("\n" + alignCenter(inputGameMode3) + inputGameMode3);
+        let inputGameMode4 = "4 for Human vs Unbeatable AI";
+        console.log("\n" + alignCenter(inputGameMode4) + inputGameMode4);
+    }
+    isQuitTipedIn = gameplayRules();
     //*************GAME START: SELECT GAME MODE****************
     function getMenuOption() {
         console.clear();
         console.log(TicTacToe);
-        console.log("\n");
+        displayMenu();
+        console.log("\n\n");
+        menUserChoice = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
+        if (menUserChoice === "quit") {
+            isQuitTipedIn = true;
+        }
         while (menUserChoice !== "1" || menUserChoice !== "2" || menUserChoice !== "3" || menUserChoice !== "4" || isQuitTipedIn === true) {
-            let inputGameMode0 = "Please enter your Game Mode:";
-            console.log("\n" + alignCenter(inputGameMode0) + inputGameMode0);
+            console.clear();
+            console.log(TicTacToe);
             if (menUserChoice === "1") {
                 let inputGameMode1 = "1 for Human vs Human";
                 console.log("\n" + alignCenter(inputGameMode1) + inputGameMode1);
             } else if (menUserChoice === "2") {
                 let inputGameMode2 = "2 for Random AI vs Random AI";
-                console.log("\n" + alignCenter(inputGameMode2) + inputGameMode2);  
+                console.log("\n" + alignCenter(inputGameMode2) + inputGameMode2);
             } else if (menUserChoice === "3") {
                 let inputGameMode3 = "3 for Human vs Random AI";
                 console.log("\n" + alignCenter(inputGameMode3) + inputGameMode3);
@@ -137,21 +152,23 @@ function startGameMenu() {
             } else if (menUserChoice === "quit") {
                 isQuitTipedIn = true;
             } else {
-                let wrongMenuInput1 = "Sorry i dont understand your input.";
-                let wrongMenuInput2 = "Please just enter the number 1-4!";
+                let wrongMenuInput1 = "Sorry i dont understand your input,";
+                let wrongMenuInput2 = "just enter the number 1-4!";
                 console.log("\n" + alignCenter(wrongMenuInput1) + wrongMenuInput1);
                 console.log(alignCenter(wrongMenuInput2) + wrongMenuInput2);
+                displayMenu();
+                console.log("\n\n");
+                menUserChoice = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
+                parameterFromMenuArr.push(menUserChoice)
+                parameterFromMenuArr.push(isQuitTipedIn);
             }
-            console.log("\n\n");
-            let menUserChoice = prompt(alignCenter(yourChoice) + yourChoice).toLowerCase();
-            parameterFromMenuArr.push(menUserChoice)
-            parameterFromMenuArr.push(isQuitTipedIn);
         }
         return parameterFromMenuArr;
     }
     return parameterFromMenuArr;
 }
-
+startGameMenu();
+/*
 //*************EXPORT****************
 module.exports = {
     startGameMenu: startGameMenu,
