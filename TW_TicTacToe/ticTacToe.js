@@ -1,7 +1,7 @@
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
-const { quitGame } = require("./menu");
+const { isQuitTipedIn } = require("./menu");
 //const getMenuOption = require({ getMenuOption });
 //const alignCenter = require({ alignCenter });
 
@@ -26,9 +26,9 @@ function main() {
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
 
-  console.log("Is Quit Game entered?" + quitGame);
+  console.log("Is Quit Game entered?" + isQuitTipedIn);
 
-  while (isGameRunning && !quitGame) {
+  while (isGameRunning && !isQuitTipedIn) {
     board.displayBoard(board);
 
     /* TODO
@@ -54,7 +54,9 @@ function main() {
         the programm should should choose betwen the functions
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
         */
+
     //if ()
+
     let humanCoord = coordinate.getPlayerMove(board, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
