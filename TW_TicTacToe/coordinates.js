@@ -2,8 +2,8 @@ const prompt = require("prompt-sync")();
 
 module.exports = {
   getPlayerMove: function (board, current_player) {
-    /*
-        Should return the read coordinates for the tic tac toe board from the terminal.
+    let playerChoice = prompt("Choose a free field");
+        /*Should return the read coordinates for the tic tac toe board from the terminal.
         The coordinates should be in the format  letter, number where the letter is 
         A, B or C and the number 1, 2 or 3.
         If the user enters an invalid coordinate (like Z0 or 1A, A11, sadfdsaf) 
@@ -16,6 +16,8 @@ module.exports = {
   },
 
   getRandomAiCoordinates: function (board, current_player) {
+
+    
     /*
         Should return a tuple of 2 numbers. 
         Each number should be between 0-2.
@@ -38,7 +40,7 @@ module.exports = {
   },
 };
 
-// run this function to test whether you have correctly implemented the other functions
+/*// run this function to test whether you have correctly implemented the other functions
 function checkCoordinates() {
   board_1 = [
     ["X", "X", "."],
@@ -94,4 +96,4 @@ function checkCoordinates() {
   ];
   console.log("The console.loged coordinate should either (0, 2) or (2, 0)");
   console.log(getUnbeatableAiCoordinates(board_6));
-}
+}*/
