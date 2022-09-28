@@ -178,8 +178,8 @@ function startGameMenu() {
             parameterFromMenuArr = parameterFromMenuArr[menUserChoice, isQuitTipedIn];
             return parameterFromMenuArr;
         }
-        return parameterFromMenuArr;
     }
+    return parameterFromMenuArr;
 }
 startGameMenu();
 
