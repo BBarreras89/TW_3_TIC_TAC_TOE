@@ -1,7 +1,9 @@
 //TODOs
-//doppelte Eingaben Loop
-//tie Condition (if both players didn't win) - integrated counter?
+//tie condition (if both players didn't win) - integrated counter?
+//switching players
+//info welcher player move dran ist 
 //other play modes 
+//allign all texts
 
 
 const prompt = require('prompt-sync')();
@@ -26,6 +28,9 @@ let process = require ('process');
 let gameIsRunning = true;
 
 let countMoves = 0; //TODO - yet to be integrated
+
+//position possibilities
+const CORRECT_FORMATTING = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
 
 let grid = [["a1","a2","a3"], 
             ["b1","b2","b3"], 
@@ -58,10 +63,28 @@ function displayGRID() {
 }
 
 //User gives moving input (e.g:B2,C1,...) & input is logged into Array
+const EXIST_MOVE_INSTRUCTION_TEXT = "This field is already occupied!";
+const WRONG_MOVE_INSTRUCTION_TEXT = "Sorry i dont undertand your input!";
+const MOVE_INSTRUCTION_TEXT = "Please enter a move by typing a possible position (Like: a1).";
+const YOUR_MOVE_TEXT = "Your move: ";
 function getUserInput() {
-    let userMove = prompt(displayText(MOVE_INSTRUCTION)).toUpperCase();     
-    userMovesMade.push(userMove);
-    }                                              
+    console.log("\n" + alignCenter(MOVE_INSTRUCTION_TEXT) + MOVE_INSTRUCTION_TEXT);
+    console.log("\n");
+    let userMove = prompt(alignCenter(YOUR_MOVE_TEXT) + YOUR_MOVE_TEXT).toUpperCase(); //User gives moving input (e.g:B2,C1,...)
+    while (!CORRECT_FORMATTING.includes(userMove)) {
+        console.log("\n" + alignCenter(WRONG_MOVE_INSTRUCTION_TEXT) + WRONG_MOVE_INSTRUCTION_TEXT);
+        console.log("\n" + alignCenter(MOVE_INSTRUCTION_TEXT) + MOVE_INSTRUCTION_TEXT);
+        console.log("\n");
+        userMove = prompt(alignCenter(YOUR_MOVE_TEXT) + YOUR_MOVE_TEXT).toUpperCase();
+    }
+    while (userMovesMade.includes(userMove)) {
+        console.log("\n" + alignCenter(EXIST_MOVE_INSTRUCTION_TEXT) + EXIST_MOVE_INSTRUCTION_TEXT);
+        console.log("\n" + alignCenter(MOVE_INSTRUCTION_TEXT) + MOVE_INSTRUCTION_TEXT);
+        console.log("\n");
+        userMove = prompt(alignCenter(YOUR_MOVE_TEXT) + YOUR_MOVE_TEXT).toUpperCase(); //User gives moving input (e.g:B2,C1,...)
+    }
+    userMovesMade.push(userMove); //Input is logged into Array
+}                                             
 
 //Winning conditions
 function winningCondition (PLAYER1,PLAYER2) {
@@ -92,6 +115,19 @@ function winningCondition (PLAYER1,PLAYER2) {
             process.exit(gameIsRunning); //breaks from function if player won
         }
         }
+
+//formatting - text allign 
+function alignCenter(varToAlignCenter) {
+    let windoWidth = 160;
+    let startPoint = (windoWidth - varToAlignCenter.length) / 2;
+    let arraySpaceAlineCenter = [];
+    for (let i = 1; i < startPoint; i++){
+        arraySpaceAlineCenter.push(" ");
+    }
+    return arraySpaceAlineCenter.join("");
+}
+
+
 
 //Place user input 
 function checkUserInput (input,Player) 
@@ -209,7 +245,6 @@ function HumanVsUnbeatable () {
 function main () {
 displayText(INTRO_TEXT);
 displayText(GAME_MODES);
-
 let playMode = prompt(displayText(CHOOSE_MODES));
 modePicked.push(playMode);
     if (modePicked[0] === QUITTING_OUT) {
