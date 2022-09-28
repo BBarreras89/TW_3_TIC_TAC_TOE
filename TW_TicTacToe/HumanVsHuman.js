@@ -1,7 +1,12 @@
+//TODOs
+//Doppelte Eingaben Loop
+//Tie Condition
+//Aus While (GameIsRunning) Loop ausbrechen 
+
 const prompt = require('prompt-sync')();
 
 //********************* Variables **************************
-//*********************** Texts ***************************+
+//*********************** Texts ****************************
 const INTRO_TEXT = "What Mode would you like to play?";
 const GAME_MODES = [`1. Human vs Human \n`, `2. Random AI vs Random AI \n`, `3. Human vs Random AI \n`, `4. Human vs Unbeatable AI \n`];
 const CHOOSE_MODES = "Choose by entering number in front of option."; 
