@@ -16,6 +16,7 @@ const GAME_MODE_TEXT = "You chose: ";
 const MOVE_INSTRUCTION = "Please enter a move by typing a possible position (Like: a1)."
 const WRONG_ENTRY = "Position already taken or non existent."
 
+let quittingOut = "QUIT";
 
 let countMoves = 0; 
 
@@ -56,12 +57,18 @@ function displayGRID() {
     console.log(grid[2]);             
 }
 
+//for picking game mode & potential quitting
+function pickMode() {
+    let 
+}
+
 //User gives moving input (e.g:B2,C1,...) & input is logged into Array
 function getUserInput() {
     let userMove = prompt(displayText(MOVE_INSTRUCTION)).toUpperCase();     
     userMovesMade.push(userMove);
     }                                              
 
+//Quit on demand
 
 //WinningConditions
 function winningCondition (Player1,Player2) {
@@ -95,8 +102,13 @@ function winningCondition (Player1,Player2) {
 
 //place user input 
 function checkUserInput (input,Player) {
-                                                //add placeholder
-    if (input === "A1") {
+    if (input === quittingOut) {
+        console.log(":(");
+        console.log("Thanks for playing.");
+        process.exit();
+    }                  
+                                //add placeholder
+    else if (input === "A1") {
             grid[0].splice(0,1,Player);  
             displayGRID();                          //an Stelle A1 wird mit splice ein X eingesetzt                                           //neues (untereinander) Grid wird durch function angezeigt
             }                                    
@@ -257,9 +269,14 @@ function HumanVsUnbeatable () {
 function main () {
 displayText(INTRO_TEXT);
 displayText(GAME_MODES);
+
 let playMode = prompt(displayText(CHOOSE_MODES));
 modePicked.push(playMode);
-if        (Number(modePicked[0]) === 1) {
+    if (modePicked[0] === quittingOut) {
+        console.log(":(");
+        console.log("Thanks for playing.");
+        process.exit();   
+    }   else if  (Number(modePicked[0]) === 1) {
   HumanVsHuman();
 }        else if (Number(modePicked[0]) ===2) {
   RandomVsRandom();
@@ -270,7 +287,7 @@ if        (Number(modePicked[0]) === 1) {
 }        else {displayText("WRONG ENTRY: This mode doesn't exist")}
 
 
-if (playMode === 1) {
+  if (playMode === 1) {
     displayText(`${GAME_MODE_TEXT}: + ${GAME_MODES[0]}`);      //displaying text: You chose 1. Human vs Human
 } else if (playMode ===2) {
     displayText(`${GAME_MODE_TEXT}: + ${GAME_MODES[1]}`);      //displaying text: You chose 2. Random AI vs Random AI
