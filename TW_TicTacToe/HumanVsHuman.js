@@ -8,7 +8,7 @@ const prompt = require('prompt-sync')();
 //********************* Variables **************************
 //*********************** Texts ****************************
 const INTRO_TEXT = "What Mode would you like to play?";
-const GAME_MODES = [`1. Human vs Human \n`, `2. Random AI vs Random AI \n`, `3. Human vs Random AI \n`, `4. Human vs Unbeatable AI \n`];
+const GAME_MODES = [`1. Human vs Human`, `2. Random AI vs Random AI`, `3. Human vs Random AI`, `4. Human vs Unbeatable AI`];
 const CHOOSE_MODES = "Choose by entering number in front of option."; 
 const GAME_MODE_TEXT = "You chose: ";
 const MOVE_INSTRUCTION = "Please enter a move by typing a possible position (Like: a1)."
