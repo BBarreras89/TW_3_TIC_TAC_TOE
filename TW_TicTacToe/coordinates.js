@@ -3,6 +3,10 @@ const prompt = require("prompt-sync")();
 module.exports = {
   getPlayerMove: function (board, current_player) {
     let playerChoice = prompt("Choose a free field");
+
+    while(! coordinates.includes(playerInput)){
+      console.log('Your coordinates are not on Our board. Please choose new coordinates starting with a letter (a,b or) and a number (1,2 or3).')
+    }
         /*Should return the read coordinates for the tic tac toe board from the terminal.
         The coordinates should be in the format  letter, number where the letter is 
         A, B or C and the number 1, 2 or 3.
@@ -16,7 +20,14 @@ module.exports = {
   },
 
   getRandomAiCoordinates: function (board, current_player) {
+      /*let choosenIndexOne = Math.floor(Math.random()*3);
+      let choosenIndexTwo = Math.floor(Math.random()*3);
 
+      while (Grid[IndexOne][indexTwo] !== '.') {
+        choosenIndexOne = Math.floor(Math.random()*3);
+        choosenIndexTwo = Math.floor(Math.random()*3);
+      }
+      return [choosenIndexOne, choosenIndexTwo];
     
     /*
         Should return a tuple of 2 numbers. 
