@@ -140,6 +140,7 @@ function startGameMenu() {
         
         //*************GAME START: SELECT GAME MODE****************
         function getMenuOption() {
+            parameterFromMenuArr;
             console.clear();
             console.log(TicTacToe);
             displayMenu();
